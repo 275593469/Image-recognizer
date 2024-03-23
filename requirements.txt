@@ -1,0 +1,6 @@
+requests
+tensorflow
+numpy
+translate
+Flask==2.1.1
+werkzeug==2.2.2
