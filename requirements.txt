@@ -1,5 +1,6 @@
 requests
 tensorflow
+torchvision
 numpy
 translate
 Flask==2.1.1
