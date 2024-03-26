@@ -11,4 +11,4 @@ COPY . /app
 RUN pip3 install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 # 在容器内运行应用
-CMD ["python", "app.py"]
+CMD ["python3", "app.py"]

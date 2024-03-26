@@ -16,8 +16,9 @@ class TensorflowPredictor():
 
     def predict_image(self, image_path):
         # 载入图片
-        image_data = tf.gfile.FastGFile(image_path, 'rb').read()
-        predictions = self.sess.run(self.softmax_tensor, {'DecodeJpeg/contents:0': image_data})  # 图片格式是jpg格式
+        image_data = tf.io.gfile.GFile(image_path, 'rb').read()
+        with tf.device('/cpu:0'):  # 使用CPU进行推理
+            predictions = self.sess.run(self.softmax_tensor, {'DecodeJpeg/contents:0': image_data})
         predictions = np.squeeze(predictions)  # 把结果转为1维
         # 打印图片路径及名称
         res_str = ''
